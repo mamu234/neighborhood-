@@ -20,29 +20,21 @@ class Neighbourhood(models.Model):
 
 
   def create_neighbourhood(self):
-    """
-    A function that saves profile 
-    """
+   
     self.save()
 
   def delete_neighbourhood(self):
-    """
-    A function that deletes a profile 
-    """
+    
     Neighbourhood.objects.filter(id = self.id).delete()
 
   def find_neighbourhood(self, id):
-    """
-    A function that gets the neighbourhood by id
-    """
+    
     Neighbourhood.objects.filter(id=self.id)
 
 
 
 class Profile(models.Model):
-  """
-  A model that contains user's info for the profile
-  """
+ 
   name = models.CharField(max_length = 30 , null = False)
   user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='profile',  blank =True)
   bio = models.TextField(max_length=500 , blank =True)
