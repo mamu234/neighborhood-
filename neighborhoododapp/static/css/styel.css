@@ -73,3 +73,29 @@ span {
     padding: 20px;
     border-radius: 6px;
 }
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    padding-right:10px;
+    background: #1a3e59;
+    color: #fff;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    min-width: 90px;
+    max-width: 90px;
+    text-align: center;
+}
+
+#sidebar.active .sidebar-header h3,
+#sidebar.active .CTAs {
+    display: none;
+}
+
+#sidebar.active .sidebar-header strong {
+    display: block;
+}
