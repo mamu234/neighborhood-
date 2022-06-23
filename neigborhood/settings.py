@@ -16,8 +16,9 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-import os
+import django_heroku
 import dj_database_url
+import os
 from decouple import config,Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
