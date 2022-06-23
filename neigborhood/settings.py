@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 import os
 import dj_database_url
@@ -136,6 +139,13 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = 'index'
 
 LOGOUT_REDIRECT_URL = 'index'
+
+
+cloudinary.config( 
+  cloud_name = config('cloud_name'), 
+  api_key = config('api_key'), 
+  api_secret = config('api_secret'),
+)
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
