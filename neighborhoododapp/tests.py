@@ -55,3 +55,67 @@ class NeighbouhoodTestClass(TestCase):
         self.hood.delete_neighbourhood()
         hood=NeighbourHood.objects.all()
         self.assertTrue(len(hood)==0)
+class BusinessTestClass(TestCase):
+    #setup method
+    def setUp(self):
+        self.user = User(username='Levy')
+        self.user.save()
+        self.user_profile = Profile(user=self.user,profile_picture="photore.png",bio="My bio")
+        self.user_profile.save()
+        self.hood= NeighbourHood(hood_name="Dala",hood_location="Nairobi",occupants_count=10,admin=self.user_profile)
+        self.hood.save()
+        self.business = Business(business_name = "Kinyos",business_email="kinyozi@gmail.com",neighbourhood=self.hood,owner=self.user_profile)
+        
+   
+    def tearDown(self):
+        User.objects.all().delete()
+        Profile.objects.all().delete()
+        NeighbourHood.objects.all().delete()
+        Business.objects.all().delete()
+      
+    def test_instance(self):
+        self.assertTrue(isinstance(self.business,Business))
+            
+    def test_save_business(self):
+        self.business.save_business()
+        businesses=Business.objects.all()
+        self.assertTrue(len(businesses)>0)
+        
+    def test_delete_business(self):
+        self.business.save_business()
+        self.business.delete_business()
+        businesses=Business.objects.all()
+        self.assertTrue(len(businesses)==0)
+
+
+
+class PostTestClass(TestCase):
+    #setup method
+    def setUp(self):
+        self.user = User(username='Levy')
+        self.user.save()
+        self.user_profile = Profile(user=self.user,profile_picture="photore.png",bio="My bio")
+        self.user_profile.save()
+        self.hood= NeighbourHood(hood_name="Dala",hood_location="Nairobi",occupants_count=10,admin=self.user_profile)
+        self.hood.save()
+        self.post = Post(title = "Test",post="Test post",hood=self.hood,user=self.user_profile)
+        
+    def tearDown(self):
+        User.objects.all().delete()
+        Profile.objects.all().delete()
+        NeighbourHood.objects.all().delete()
+        Post.objects.all().delete()
+      
+    def test_instance(self):
+        self.assertTrue(isinstance(self.post,Post))
+            
+    def test_save_post(self):
+        self.post.save_post()
+        posts=Post.objects.all()
+        self.assertTrue(len(posts)>0)
+        
+    def test_delete_post(self):
+        self.post.save_post()
+        self.post.delete_post()
+        posts=Post.objects.all()
+        self.assertTrue(len(posts)==0)
