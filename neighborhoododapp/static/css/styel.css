@@ -97,5 +97,5 @@ span {
 }
 
 #sidebar.active .sidebar-header strong {
-    display: block;
+    display: inline-block;
 }
