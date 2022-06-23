@@ -142,7 +142,7 @@ LOGOUT_REDIRECT_URL = 'index'
 
 
 cloudinary.config( 
-  cloud_name = config('cloud_name'), 
+  cloud_name = config("dgwsgoxjd"), 
   api_key = config('api_key'), 
   api_secret = config('api_secret'),
 )
