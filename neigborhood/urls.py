@@ -23,6 +23,6 @@ urlpatterns = [
     path('accounts/', include('registration.backends.simple.urls')),
     path('', include('neighbourapp.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path(r'^logout/$', views.logout, {"next_page": '/'}), 
+    path('^logout/', views.logout, {"next_page": '/'}), 
 
 ]
