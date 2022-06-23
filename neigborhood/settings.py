@@ -16,7 +16,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-import django_heroku
+
 import dj_database_url
 import os
 from decouple import config,Csv
@@ -150,6 +150,7 @@ cloudinary.config(
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+# Configure Django App for Heroku.
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
