@@ -144,7 +144,7 @@ LOGOUT_REDIRECT_URL = 'index'
 cloudinary.config( 
   cloud_name = config("dgwsgoxjd"), 
   api_key = config("269319899829333"), 
-  api_secret = config('api_secret'),
+  api_secret = config("Ge8SNu-60CxUS9Nefa68cwGVrlw") ,
 )
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
